@@ -48,10 +48,22 @@
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Plate Name is required">
-					<input class="input1" type="text" id="mealtype" name="Meal Plate?" placeholder="Meal Plate Name?">
-					<span class="shadow-input1"></span>
-				</div>
+				<div class="wrap-input1 validate-input" data-validate="Plate Name is required" style="width: 100%; height: 50px;">
+    <select class="input1" id="mealtype" name="Meal Plate" style="width: 100%; height: 50px; border-radius: 30px;">
+        <option value="" disabled selected>Select Meal Plate</option>
+        <option value="north-indian-thali">North Indian Thali</option>
+        <option value="south-indian-thali">South Indian Thali</option>
+        <option value="gujarati-thali">Gujarati Thali</option>
+        <option value="rajasthani-thali">Rajasthani Thali</option>
+        <option value="biryani">Biryani</option>
+        <option value="tandoori">Tandoori</option>
+        <!-- Add more options as needed -->
+    </select>
+    <span class="shadow-input1"></span>
+</div>
+
+
+
 
 				<div class="wrap-input1 validate-input" data-validate = "No of People is required">
 					<input class="input1" type="number" id="peeps" name="people" placeholder="No of People">
@@ -69,7 +81,7 @@
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Birth Details is required">
-					<input class="input1" type="text" id="bgno" name="Birth Name and No." placeholder="Birth Name and No.">
+					<input class="input1" type="text" id="bgno" name="Birth Name and No." placeholder="Coach and Seat No.">
 					<span class="shadow-input1"></span>
 				</div>
 
