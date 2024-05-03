@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/maincoolie.css">
 <!--===============================================================================================-->
+
 </head>
 <body>
 
@@ -73,10 +74,16 @@
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Birth Details is required">
-					<input class="input1" type="text" id="bgno" name="Birth No." placeholder="Birth No.">
-					<span class="shadow-input1"></span>
-				</div>
+				<div class="wrap-input1 validate-input" data-validate="Coach is required">
+    <input class="input1" type="text" id="coach" name="coach" placeholder="Coach">
+    <span class="shadow-input1"></span>
+</div>
+
+<div class="wrap-input1 validate-input" data-validate="Seat No. is required">
+    <input class="input1" type="text" id="seat_no" name="seat_no" placeholder="Seat No.">
+    <span class="shadow-input1"></span>
+</div>
+
 
 				<div class="wrap-input1 validate-input" data-validate = "Station Name is required">
 					<input class="input1" type="text" id="sname" name="Station Name" placeholder="Station Name">
@@ -87,6 +94,7 @@
 					<input class="input1" type="text" id="pickup" name="Pickup Gate No." placeholder="Pickup Gate No.">
 					<span class="shadow-input1"></span>
 				</div>
+
 
 				<div class="wrap-input1 validate-input" data-validate = "Drop Off is required">
 					<input class="input1" type="text" id="doff" name="Drop Off Platform No." placeholder="Drop Off Platform No.">
@@ -136,6 +144,17 @@ var firebaseConfig = {
     appId: "1:319419574488:web:66c34cf579c345b2b1cfad"
 };
 firebase.initializeApp(firebaseConfig);
+
+function itercoolie() {
+    var database = firebase.database();
+    database.ref().once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var data = childSnapshot.val();
+            console.log("Data: ", data);
+        });
+    });
+}
+
 </script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
