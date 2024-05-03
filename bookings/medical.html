@@ -46,10 +46,25 @@
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Service is required">
-					<input class="input1" type="text" id="facility" name="Service" placeholder="Type of Medical Facility?">
-					<span class="shadow-input1"></span>
-				</div>
+				<div class="wrap-input1 validate-input" data-validate="Condition is required" style="width: 100%;">
+    <select class="input1" id="condition" name="Condition" style="width: 100%; height: 50px; border-radius: 30px;">
+        <option value="" disabled selected>Select Medical Condition</option>
+        <option value="headache">Headache</option>
+        <option value="nausea">Nausea</option>
+        <option value="vomiting">Vomiting</option>
+        <option value="dizziness">Dizziness</option>
+        <option value="dehydration">Dehydration</option>
+        <option value="fever">Fever</option>
+        <option value="cold">Cold</option>
+        <option value="flu">Flu</option>
+        <option value="allergy">Allergic Reaction</option>
+        <option value="injury">Minor Injury</option>
+        <option value="injury">Severe Injury</option>
+	<option value="injury">Other</option>        
+    </select>
+    <span class="shadow-input1"></span>
+</div>
+
 
 				<div class="wrap-input1 validate-input" data-validate = "Date of Arrival is required">
 					<input class="input1" type="date" id="doa" name="Date of Arrival" placeholder="Date of Arrival">
@@ -57,12 +72,12 @@
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Train No is required">
-					<input class="input1" type="text" id="tname" name="Train No." placeholder="Train No.">
+					<input class="input1" type="text" id="tname" name="Train No." placeholder="Train PNR No.">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Birth Details is required">
-					<input class="input1" type="text" id="bgno" name="Birth Name and No." placeholder="Birth Name and No.">
+					<input class="input1" type="text" id="bgno" name="Birth Name and No." placeholder="Coach and Seat No.">
 					<span class="shadow-input1"></span>
 				</div>
 
