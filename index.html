@@ -13,22 +13,78 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-  <style>
-    .example::-webkit-scrollbar 
-    {
-        display: none;
+<style>
+    .loader-43 {
+  background-color: rgb(150, 150, 150);;
+}
+  .loader-43 .loader-holder {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(1, 1) translateZ(0);
+    width: 200px; height: 200px;
+    border: 3px solid rgb(150, 150, 150);;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .loader-43 .loader-holder::before {
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: 0; left: 50%;
+    transform: translate(-50%, 104%);
+    width: 370px; height: 200px;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);;
+    animation: moveBefore43 5s forwards linear;
+    z-index: 1;
+  }
+    .loader-43 .loader-container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(1, 1) translateZ(0);
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border-top: 5px solid rgb(150, 150, 150);;
+      overflow: hidden;
+      animation: spin43 2s infinite linear;
+      z-index: 2;
     }
-  </style>
+
+    .loader-43 p {
+      position: absolute;
+      top: 50%; left: 50%;
+      font-size: 35px;
+      font-weight: 900;
+      color: rgb(150, 150, 150);;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: rgb(150, 150, 150);;
+    }
+@keyframes moveBefore43 {
+  0%   { transform: translate(-50%, 104%); }
+  80%  { transform: translate(-50%, 50%); }
+  100% { transform: translate(-50%, 0%); }
+}
+@keyframes spin43 {
+  0%   { transform: translate(-50%, -50%) scale(1, 1) translateZ(0) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) scale(1, 1) translateZ(0) rotate(360deg)}
+}
+
+        }
+    </style>
+
   </head>
   <body class="example">
 
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+  <div class="loader loader-43">
+  <div class='loader-holder'>
+    <div class="loader-container"></div>
   </div>
-    
+  <p class='loader-title'>RAILWAYEASE</p>
+</div>
+
+  <div id="overlayer"></div>
 
 <div class="site-wrap">
 
