@@ -49,62 +49,10 @@
         <h1>Thank You!</h1>
         <p>Thanks a bunch for filling out your requirements. You will be provided with the required services as soon as possible.</p>
         <p>It was a pleasure helping you. Regards, team RES.</p>
-        <label><h4>Enter OTP:</h4></label>
-        <input type="text" id="otp" placeholder="Enter OTP">
-        <p id="otpError" style="color: red; display: none;">Invalid OTP. Please try again.</p>
-        <button onclick="verifyOTP()" class="btn">Verify OTP</button>
+        
+
         <a href="C:\Users\NEW\Downloads\RailwayEase-main (6)\RailwayEase-main\index.html" class="btn">Return to Home Screen</a>
     </div>
 </body>
-<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
-<script>
-var firebaseConfig = {
-  apiKey: "AIzaSyAM99Z0jyDNffIW_y-v6mZz7CBBZKDEEl0",
-    authDomain:"railease-26fb9.firebaseapp.com",
-    projectId: "railease-26fb9",
-    storageBucket: "railease-26fb9.appspot.com",
-    messagingSenderId: "319419574488",
-    appId: "1:319419574488:web:66c34cf579c345b2b1cfad"
-};
-firebase.initializeApp(firebaseConfig);
 
-function sendOTP() {
-    var phoneNumber = "YOUR_PHONE_NUMBER"; // Replace with the user's phone number
-    var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-        .then(function (confirmationResult) {
-            window.confirmationResult = confirmationResult;
-            console.log("OTP sent successfully");
-        }).catch(function (error) {
-            console.log("Error sending OTP: ", error);
-        });
-}
-
-function verifyOTP() {
-    var otp = document.getElementById("otp").value;
-    var confirmationResult = window.confirmationResult;
-    confirmationResult.confirm(otp).then(function (result) {
-        // OTP verification successful
-        console.log("OTP verified successfully");
-        window.location.href = "success.html"; // Redirect to success page
-    }).catch(function (error) {
-        // OTP verification failed
-        console.log("Error verifying OTP: ", error);
-        document.getElementById("otpError").style.display = "block";
-    });
-}
-
-// Function to display data (OTP) from Firebase Database
-function displaydata() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        var user = firebase.auth().currentUser;
-        var email_id = user.email;
-        var name1 = email_id.substring(0, email_id.lastIndexOf("@"));
-        firebase.database().ref('Booking/Coolie/' + name1).on('value', function(snapshot) {
-            document.getElementById("otp").value = snapshot.val().OTP;
-        });
-    });
-}
-</script>
 </html>
