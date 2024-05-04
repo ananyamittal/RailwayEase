@@ -144,17 +144,6 @@ var firebaseConfig = {
     appId: "1:319419574488:web:66c34cf579c345b2b1cfad"
 };
 firebase.initializeApp(firebaseConfig);
-
-function itercoolie() {
-    var database = firebase.database();
-    database.ref().once('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var data = childSnapshot.val();
-            console.log("Data: ", data);
-        });
-    });
-}
-
 </script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
