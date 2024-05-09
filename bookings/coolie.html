@@ -112,12 +112,12 @@
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<a href = "Thank_You/index.html" class="contact1-form-btn" onclick="insertcoolie()">
-						<span>
-							Book a Coolie
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</a>
+                <button type="button" class="contact1-form-btn" onclick="insertCoolie()">
+                    <span>
+                        Book a Coolie
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </button>
 				</div>
 
 			</form>
@@ -155,28 +155,46 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-// Function to insert data into Firebase
 function insertCoolie() {
     var name = document.getElementById('f_name').value;
     var email = document.getElementById('email').value;
     var mobile = document.getElementById('mobile').value;
-    // Collect other form fields similarly
+    var largeBags = document.getElementById('l').value;
+    var mediumBags = document.getElementById('m').value;
+    var handBags = document.getElementById('h').value;
+    var dateOfArrival = document.getElementById('doa').value;
+    var trainName = document.getElementById('tname').value;
+    var coach = document.getElementById('coach').value;
+    var seatNo = document.getElementById('seat_no').value;
+    var stationName = document.getElementById('sname').value;
+    var pickupGateNo = document.getElementById('pickup').value;
+    var dropOffPlatformNo = document.getElementById('doff').value;
 
     var database = firebase.database();
-    var coolieRef = database.ref('coolies');
+    var coolieRef = database.ref('Coolie_Booking');
 
-    // Push data to Firebase
     coolieRef.push({
         name: name,
         email: email,
-        mobile: mobile
-        // Add other fields here
+        mobile: mobile,
+        largeBags: largeBags,
+        mediumBags: mediumBags,
+        handBags: handBags,
+        dateOfArrival: dateOfArrival,
+        trainName: trainName,
+        coach: coach,
+        seatNo: seatNo,
+        stationName: stationName,
+        pickupGateNo: pickupGateNo,
+        dropOffPlatformNo: dropOffPlatformNo
     }).then(function() {
         console.log("Data successfully written to Firebase.");
+        window.location.href = "Thank_You/index.html";
     }).catch(function(error) {
         console.error("Error writing data to Firebase: ", error);
     });
 }
+
 
 </script>
 <!--===============================================================================================-->
