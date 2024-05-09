@@ -70,13 +70,13 @@
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<a href = "Thank_You/C_thankyou.html" class="contact1-form-btn" onclick="insertcoolie()">
-						<span>
-							Join
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</a>
-				</div>
+                <button type="button" class="contact1-form-btn" onclick="insertCoolie()">
+                    <span>
+                        join
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </button>
+
 
 			</form>
 
@@ -114,6 +114,34 @@ var firebaseConfig = {
     appId: "1:319419574488:web:66c34cf579c345b2b1cfad"
 };
 firebase.initializeApp(firebaseConfig);
+
+function insertCoolie() {
+    var name = document.getElementById('namew').value;
+    var age = document.getElementById('agew').value;
+    var gender = document.getElementById('genderw').value;
+    var phone = document.getElementById('numberw').value;
+    var email = document.getElementById('emailw').value;
+    var work = document.getElementById('msgw').value;
+    var dropOff = document.getElementById('doff').value;
+
+    var database = firebase.database();
+    var coolieRef = database.ref('Coolie_Joining');
+
+    coolieRef.push({
+         name: name,
+        age: age,
+        gender: gender,
+        phone: phone,
+        email: email,
+        work: work,
+        dropOffPlatform: dropOff
+    }).then(function() {
+        console.log("Data successfully written to Firebase.");
+        window.location.href = "Thank_You/C_thankyou.html";
+    }).catch(function(error) {
+        console.error("Error writing data to Firebase: ", error);
+    });
+}
 </script>
 <script src="js/main.js"></script>
 <script src="js/firebase.js"></script>
