@@ -65,13 +65,13 @@
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<a href = "Thank_You/M_thankyou.html" class="contact1-form-btn" onclick="insertcatering()">
-						<span>
-							Join
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</a>
-				</div>
+				<button type="button" class="contact1-form-btn" onclick="insertCatering()">
+                    <span>
+                        join
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </span>
+                </button>
+
 
 			</form>
 		</div>
@@ -108,6 +108,35 @@ var firebaseConfig = {
     appId: "1:319419574488:web:66c34cf579c345b2b1cfad"
 };
 firebase.initializeApp(firebaseConfig);
+
+function insertCatering() {
+    var name = document.getElementById('namew').value;
+    var age = document.getElementById('agew').value;
+    var gender = document.getElementById('genderw').value;
+    var email = document.getElementById('emailw').value;
+    var phone = document.getElementById('numberw').value;
+    var workHours = document.getElementById('msgw').value;
+   
+    var database = firebase.database();
+    var cateringRef = database.ref('Catering_Joining');
+
+
+    cateringRef.push({
+        name: name,
+        age: age,
+        gender: gender,
+        email: email,
+        phone: phone,
+        workHours: workHours
+    }).then(function() {
+        console.log("Data added successfully!");
+        // Redirect to thank you page
+        window.location.href = "Thank_You/M_thankyou.html";
+    }).catch(function(error) {
+        console.error("Error adding data: ", error);
+    });
+}
+
 </script>
 	<script src="js/firebase.js"></script>
 
